@@ -1,3 +1,4 @@
+#In order to play the datasets from 'https://ocslab.hksecurity.net/Datasets/CAN-intrusion-dataset' in python-can we need to change it to can-util format
 def can_util_format(file):
     output_file=open('../datasets/normal_data_can_util.log','w')
     for line in file:
