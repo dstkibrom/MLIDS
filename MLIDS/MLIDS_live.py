@@ -4,20 +4,20 @@ import frame_reader_from_file
 import testing_dataset_creator_with_time
 
 all_ids =['04b1', '00a1', '0430', '02a0', '0130', '0329', '0545', '0370', '05f0', '0316', '0002', '0260', '02b0',
-          '05a2', '0440','0140', '0131', '0350', '018f', '0153', '05a0', '0690', '04f0', '043f', '00a0', '02c0', '01f1']
+          '05a2', '0440','0140', '0131', '0350', '018f', '0153', '05a0', '0690', '04f0', '043f', '00a0', '02c0', '01f1']  # available arbitration IDs in the dataset
 
 all_ids_length = {'04b1': 50, '00a1': 10, '0430': 50, '02a0': 100, '0130': 100, '0329': 100, '0545': 100, '0370': 100,
                   '05f0': 20, '0316': 100, '0002': 100, '0260': 100, '02b0': 100, '05a2': 1, '0440': 100, '0140': 100,
                   '0131': 100, '0350': 101, '018f': 100, '0153': 100, '05a0': 1, '0690': 10, '04f0': 50, '043f': 100,
-                  '00a0': 10, '02c0': 101, '01f1': 50}
+                  '00a0': 10, '02c0': 101, '01f1': 50}              # arbitration ID and its corresponing frequency in a second
 freq = list(all_ids_length.values())
 
 
-duration=1
-frames_fetcher.fetch(duration)
-batch_size=1
+duration=1               # detection duration
+frames_fetcher.fetch(duration)     # fetch packets from the terminal that is playing the can dataset
+batch_size=1                       # we need to change the batch size to 1 inorder to make predictions
 #===================================================
-file = open("temp_file.txt", "r")
+file = open("temp_file.txt", "r")    #read frames collected by frame fetcher
 Arb_id_0 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[0])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
@@ -34,7 +34,7 @@ arb_id_0 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
                                                                bit_43, bit_44, bit_45, bit_46, bit_47, bit_48, bit_49,
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61,bit_62, bit_63,
-                                                               batch_size=batch_size,model_dir='../Arb_id_0/training_checkpoints')
+                                                               batch_size=batch_size,model_dir='../Arb_id_0/training_checkpoints') # this folder is not available unless all arbitration IDs are trained first
 
 #===================================================
 file = open("temp_file.txt", "r")
