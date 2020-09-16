@@ -6,7 +6,7 @@ def fetch(duration):
     bus = can.interface.Bus(bustype="socketcan", channel="vcan0", bitrate=500000)
     current_window_data = open('temp_file.txt', 'w')
     start = time.time()
-    duration = 1
+    duration = duration
     for msg in bus:
         frame = str(msg)
         time_stamp = frame[11:28]
