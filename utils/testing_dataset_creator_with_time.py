@@ -18,7 +18,7 @@ LSTM_units = 128
 embedding_size = 16
 num_layers = 1
 duration = duration
-checkpoint_dir = "../trained_models/Arb_id_0/training_checkpoints"
+checkpoint_dir = "trained_models/Arb_id_0/training_checkpoints"
 arb_id = all_ids[0]
 
 model = model_creator_sigmoid.my_model(batch_size, LSTM_units,embedding_size, num_layers)
