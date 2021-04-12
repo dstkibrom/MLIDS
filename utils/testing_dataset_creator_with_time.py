@@ -24,7 +24,7 @@ LSTM_units = 32
 embedding_size = 16
 num_layers = 1
 duration = duration
-checkpoint_dir = "../trained_models/1/training_checkpoints"
+checkpoint_dir = "trained_models/1/training_checkpoints"
 arb_id = all_ids[1]
 
 checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
@@ -146,5 +146,6 @@ def ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, b
             bit_loss = 0
             counter = 0
         whole_sequence_loss.append(sum(packet_loss) / len(packet_loss))
+        print(whole_sequence_loss)
     return whole_sequence_loss
 

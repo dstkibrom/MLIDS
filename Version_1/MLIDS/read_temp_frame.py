@@ -1,12 +1,15 @@
-all_ids=['04b1', '00a1', '0430', '02a0', '0130', '0329', '0545', '0370', '05f0', '0316', '0002', '0260', '02b0', '05a2', '0440',
-         '0140', '0131', '0350', '018f', '0153', '05a0', '0690', '04f0', '043f', '00a0', '02c0', '01f1']
+all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800', '18FF8400',
+           '18FEE500', '18F00029', '18FEF200', '18FF7F00', '1CFF7100', '18EBFF00', '18FF8200',
+           '18FF8600', '18FEDC00', '1CFF7700', '18FF8900', '18FEDF00', '18FEE900', '18FF8700',
+           '18FEE700', '1CFEB300', '18FEC100', '18FEEE00', '18ECFF29', '18EBFF29', '0C000027',
+           '0C000F27', '18FEF111', '0CF00203', '0CF00327', '18FF8327', '0C002927', '18FF5027',
+           '18F00503', '18FF5127', '18FEED11', '18FEE617', '1CFFAA27', '18EC0027', '18EB0027']
 
 
 def prepare_dataset(file, arbitration_id):
     counter = 0
     # collect data for the length of duration and append it to the above variables
     sid_data_sequence=[]
-
     for line in file:
         counter = counter + 1  # for counting the numbers of data sets , this should be here for synchronization
         arb_id = line[18:22]
@@ -24,3 +27,7 @@ def prepare_dataset(file, arbitration_id):
             sid_data_sequence.append(data)
     return sid_data_sequence[-2:]
 # sid_data_sequence[-2:] if only the last packet is needed
+
+if __name__ == "__main__":
+    print("In file")
+    print(prepare_dataset(open('temp_file.txt','r'),all_ids[0]))

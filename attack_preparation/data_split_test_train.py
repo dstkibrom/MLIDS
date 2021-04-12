@@ -5,15 +5,13 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
            '0C000F27', '18FEF111', '0CF00203', '0CF00327', '18FF8327', '0C002927', '18FF5027',
            '18F00503', '18FF5127', '18FEED11', '18FEE617', '1CFFAA27', '18EC0027', '18EB0027']
 
-# 332 packets in a second
-# def prepare_dataset(file, inser_freq):
 
-file = open("Arb_id_0/minatobus-candump-2019-05-08_030759.log", "r")
-inser_freq=0.001
-insert_every=int(332*inser_freq)
+
+file = open("../datasets/minatobus-candump-2019-05-08_030759.log", "r")
+
 counter=0
-test_data_benign = open("benign_data.txt", 'a')
-test_data_attack_prep=open("test_data_attack_prep.txt", 'a')
+test_data_benign = open("../datasets/benign_data.txt", 'w')
+test_data_attack_prep=open("../datasets/test_data_attack_prep.txt", 'w')
 for line in file:
     counter=counter+1
     if counter > 30000000 and counter < 33000000:

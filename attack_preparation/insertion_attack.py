@@ -6,8 +6,8 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
            '0C000F27', '18FEF111', '0CF00203', '0CF00327', '18FF8327', '0C002927', '18FF5027',
            '18F00503', '18FF5127', '18FEED11', '18FEE617', '1CFFAA27', '18EC0027', '18EB0027']
 
-# 332 packets in a second
-# def prepare_dataset(file, inser_freq):
+# There are 679.3772 averge messages in a second
+# This program drops one packet in every 0.01 seconds
 
 file = open("test_data_attack_prep.txt", "r")
 packets=[]
@@ -17,7 +17,7 @@ for line in file:
 file.close()
 
 inser_freq=0.01
-insert_every=int(332*inser_freq)
+insert_every=int(679*inser_freq)
 counter=0
 for i in range(len(packets)):
     counter=counter+1

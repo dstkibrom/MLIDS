@@ -113,7 +113,6 @@ def ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bi
                                                  bit_63_output))
     inputs = inputs.batch(batch_size, drop_remainder=True)     #input frame
     outputs = outputs.batch(batch_size, drop_remainder=True)   #output frame
-
     # train_data=tf.data.Dataset.zip((inputs,outputs)).batch(batch_size,drop_remainder=True) #if we want to do prediction using the whole data
     def loss(labels, logits):
         return tf.keras.losses.binary_crossentropy(labels, logits)
@@ -133,13 +132,11 @@ def ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bi
             packet_loss.append(bit_loss[0] / counter)
         else:
             packet_loss.append(bit_loss[0] / 1.0)
-        print(packet_loss)
         bit_loss = 0
         counter = 0
     if len(packet_loss)!=0:
         whole_sequence_loss.append(sum(packet_loss) / len(packet_loss))
     else:
         whole_sequence_loss.append(sum(packet_loss) / 1.0)
-    print(whole_sequence_loss)
     return whole_sequence_loss
 

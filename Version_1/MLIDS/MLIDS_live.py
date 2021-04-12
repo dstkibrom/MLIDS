@@ -1,6 +1,6 @@
 import frames_fetcher
 import bits_extractor
-import frame_reader_from_file
+import read_temp_frame
 import testing_dataset_creator_with_time
 
 all_ids =['04b1', '00a1', '0430', '02a0', '0130', '0329', '0545', '0370', '05f0', '0316', '0002', '0260', '02b0',
@@ -18,7 +18,7 @@ frames_fetcher.fetch(duration)     # fetch packets from the terminal that is pla
 batch_size=1                       # we need to change the batch size to 1 inorder to make predictions
 #===================================================
 file = open("temp_file.txt", "r")    #read frames collected by frame fetcher
-Arb_id_0 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[0])  # total, sequencelength, 64  # 700,68,64
+Arb_id_0 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[0])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -38,7 +38,7 @@ arb_id_0 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
 
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_2 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[2])  # total, sequencelength, 64  # 700,68,64
+Arb_id_2 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[2])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -58,7 +58,7 @@ arb_id_2 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
 #===================================================
 
 file = open("temp_file.txt", "r")
-Arb_id_3 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[0])  # total, sequencelength, 64  # 700,68,64
+Arb_id_3 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[0])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -77,7 +77,7 @@ arb_id_3 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
                                                                batch_size=batch_size, model_dir='../Arb_id_0/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_4 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[4])  # total, sequencelength, 64  # 700,68,64
+Arb_id_4 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[4])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -96,7 +96,7 @@ arb_id_4 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
                                                                batch_size=batch_size, model_dir='../Arb_id_4/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_5 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[5])  # total, sequencelength, 64  # 700,68,64
+Arb_id_5 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[5])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -115,7 +115,7 @@ arb_id_5 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
                                                                batch_size=batch_size, model_dir='../Arb_id_5/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_6 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[6])  # total, sequencelength, 64  # 700,68,64
+Arb_id_6 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[6])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -134,7 +134,7 @@ arb_id_6 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
                                                                batch_size=batch_size, model_dir='../Arb_id_6/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_7 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[7])  # total, sequencelength, 64  # 700,68,64
+Arb_id_7 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[7])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -153,7 +153,7 @@ arb_id_7 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
                                                                batch_size=batch_size, model_dir='../Arb_id_7/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_9 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[9])  # total, sequencelength, 64  # 700,68,64
+Arb_id_9 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[9])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -172,7 +172,7 @@ arb_id_9 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bit
                                                                batch_size=batch_size, model_dir='../Arb_id_9/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_10 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[10])  # total, sequencelength, 64  # 700,68,64
+Arb_id_10 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[10])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -191,7 +191,7 @@ arb_id_10 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_10/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_11 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[11])  # total, sequencelength, 64  # 700,68,64
+Arb_id_11 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[11])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -210,7 +210,7 @@ arb_id_11 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_11/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_12 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[12])  # total, sequencelength, 64  # 700,68,64
+Arb_id_12 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[12])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -229,7 +229,7 @@ arb_id_12 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_12/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_14 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[14])  # total, sequencelength, 64  # 700,68,64
+Arb_id_14 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[14])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -248,7 +248,7 @@ arb_id_14 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_14/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_15 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[15])  # total, sequencelength, 64  # 700,68,64
+Arb_id_15 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[15])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -267,7 +267,7 @@ arb_id_15 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_15/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_16 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[16])  # total, sequencelength, 64  # 700,68,64
+Arb_id_16 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[16])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -286,7 +286,7 @@ arb_id_16 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_16/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_17 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[17])  # total, sequencelength, 64  # 700,68,64
+Arb_id_17 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[17])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -305,7 +305,7 @@ arb_id_17 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_17/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_18 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[18])  # total, sequencelength, 64  # 700,68,64
+Arb_id_18 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[18])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -324,7 +324,7 @@ arb_id_18 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_18/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_19 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[19])  # total, sequencelength, 64  # 700,68,64
+Arb_id_19 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[19])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -343,7 +343,7 @@ arb_id_19 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_19/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_22 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[22])  # total, sequencelength, 64  # 700,68,64
+Arb_id_22 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[22])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -362,7 +362,7 @@ arb_id_22 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_22/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_23 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[23])  # total, sequencelength, 64  # 700,68,64
+Arb_id_23 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[23])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -381,7 +381,7 @@ arb_id_23 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_23/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_25 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[25])  # total, sequencelength, 64  # 700,68,64
+Arb_id_25 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[25])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -400,7 +400,7 @@ arb_id_25 = testing_dataset_creator_with_time.ready_for_testing(bit_0, bit_1, bi
                                                                 batch_size=batch_size, model_dir='../Arb_id_25/training_checkpoints')
 #===================================================
 file = open("temp_file.txt", "r")
-Arb_id_26 = frame_reader_from_file.prepare_dataset(file, arbitration_id=all_ids[26])  # total, sequencelength, 64  # 700,68,64
+Arb_id_26 = read_temp_frame.prepare_dataset(file, arbitration_id=all_ids[26])  # total, sequencelength, 64  # 700,68,64
 file.close()
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \

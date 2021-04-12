@@ -7,18 +7,17 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
            '18F00503', '18FF5127', '18FEED11', '18FEE617', '1CFFAA27', '18EC0027', '18EB0027']
 
 
-file = open("test_data_attack_prep.txt", "r")
+file = open("../datasets/test_data_attack_prep.txt", "r")
 packets=[]
-drop_attack = open("drop_attack.txt", 'a')
+drop_attack = open("../datasets/drop_attack.txt", 'w')
 for line in file:
     packets.append(line)
-print(len(packets))
 file.close()
 
-
+# There are 679.3772 averge messages in a second
+# This program drops one packet in every 0.01 seconds
 drop_freq=0.01
-drop_every=int(332*drop_freq)
-print(drop_every)
+drop_every=int(679*drop_freq)
 counter=0
 for i in range(len(packets)):
     counter=counter+1

@@ -14,8 +14,10 @@ for line in file:
     packets.append(line)
 file.close()
 
+# There are 679.3772 averge messages in a second
+# This program drops one packet in every 0.01 seconds
 inser_freq=0.01
-insert_every=int(332*inser_freq)
+insert_every=int(679*inser_freq)
 counter=0
 for i in range(len(packets)):
     counter=counter+1
