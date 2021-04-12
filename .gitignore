@@ -2,5 +2,6 @@ trained_models/Arb_id_0/training_checkpoints
 training_logs
 datasets
 trial.py
-test_datasets
+datasets/test_datasets
 .idea
+/trained_models
