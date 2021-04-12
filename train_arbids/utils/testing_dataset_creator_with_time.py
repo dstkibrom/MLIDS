@@ -1,7 +1,6 @@
 import tensorflow as tf
 from model import model_creator_sigmoid
 import logging
-import os
 
 logging.getLogger('tensorflow').disabled = True
 
@@ -12,22 +11,16 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
            '0C000F27', '18FEF111', '0CF00203', '0CF00327', '18FF8327', '0C002927', '18FF5027',
            '18F00503', '18FF5127', '18FEED11', '18FEE617', '1CFFAA27', '18EC0027', '18EB0027']
 
-
-
-conf = [16, 1, 32, 'ITD', 'SGD', 0.1]
-
-
 duration = 1
 memory = 30000
 batch_size = 1
-LSTM_units = 32
+LSTM_units = 128
 embedding_size = 16
 num_layers = 1
 duration = duration
-checkpoint_dir = "../trained_models/1/training_checkpoints"
-arb_id = all_ids[1]
+checkpoint_dir = "trained_models/Arb_id_0/training_checkpoints"
+arb_id = all_ids[0]
 
-checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
 model = model_creator_sigmoid.my_model(batch_size, LSTM_units,embedding_size, num_layers)
 model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
 model.build(tf.TensorShape([1, None]))
@@ -128,6 +121,7 @@ def ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, b
                                                      bit_63_output))
         inputs = inputs.batch(batch_size, drop_remainder=True)
         outputs = outputs.batch(batch_size, drop_remainder=True)
+
         # train_data=tf.data.Dataset.zip((inputs,outputs)).batch(batch_size,drop_remainder=True) #if we want to do prediction using the whole data
         def loss(labels, logits):
             return tf.keras.losses.binary_crossentropy(labels, logits)

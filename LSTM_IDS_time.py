@@ -14,7 +14,7 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
 batch_size=1
 arb_id=all_ids[0]
 file = open("test_datasets/insertion_attack.txt", "r")
-test_data = frame_reader_with_time.prepare_dataset(file, det_duration=1, arbitration_id=arb_id, dur_seconds=1000)  # total, sequencelength, 64  # 700,68,64
+test_data = frame_reader_with_time.prepare_dataset(file, det_duration=1, arbitration_id=arb_id, dur_seconds=10)  # total, sequencelength, 64  # 700,68,64
 
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
 bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
@@ -41,6 +41,7 @@ print(input_test_data)
 file=open("arbID_0",'a')
 file.write("\n\nAnomaly results\n\n"+str(input_test_data))
 file.close()
+exit(0)
 
 print("+++++++++++++++++++++++++++++++++++")
 file = open("test_datasets/benign_data.txt", "r")

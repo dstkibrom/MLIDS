@@ -117,15 +117,11 @@ def train_arbid(arbid_index):
     checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
     checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_prefix, save_weights_only=True)
     model.compile(optimizer=opt,
-                       loss=[loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
-                             loss, loss, loss,
-                             loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
-                             loss, loss, loss,
-                             loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
-                             loss,
-                             loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
-                             loss,
-                             loss, loss, loss, loss, loss, loss, loss, loss])
+                       loss=[loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
+                             loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
+                             loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
+                             loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss, loss,
+                             loss, loss, loss, loss])
 
     model.fit(train_data, validation_data=val_data, epochs=no_epochs,verbose=1, callbacks=[early_stopping_cb, checkpoint_callback])
 
