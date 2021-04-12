@@ -46,7 +46,7 @@ arb_id_0 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/0/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
 print(arb_id_0)
-
+print("========================================================")
 Arb_id_1 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[1])   #  returns two consecutive packets of the same arbitration IDs
 
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
@@ -65,7 +65,8 @@ arb_id_1 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/1/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
 
-
+print(arb_id_1)
+print("========================================================")
 Arb_id_2 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[2])   #  returns two consecutive packets of the same arbitration IDs
 
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
@@ -84,7 +85,8 @@ arb_id_2 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/2/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
 
-
+print(arb_id_2)
+print("========================================================")
 Arb_id_3 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[3])   #  returns two consecutive packets of the same arbitration IDs
 
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
@@ -102,7 +104,8 @@ arb_id_3 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5,
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/3/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_3)
+print("========================================================")
 
 Arb_id_8 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[8])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -122,7 +125,8 @@ arb_id_8 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/8/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
 
-
+print(arb_id_8)
+print("========================================================")
 Arb_id_9 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[9])   #  returns two consecutive packets of the same arbitration IDs
 
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
@@ -140,7 +144,8 @@ arb_id_9 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5,
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/9/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_9)
+print("========================================================")
 
 Arb_id_10 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[10])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -159,7 +164,8 @@ arb_id_10 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/10/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_10)
+print("========================================================")
 
 Arb_id_11 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[11])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -178,7 +184,8 @@ arb_id_11 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/11/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_11)
+print("========================================================")
 
 Arb_id_13 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[13])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -197,7 +204,8 @@ arb_id_13 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/13/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_13)
+print("========================================================")
 
 Arb_id_16 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[16])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -216,7 +224,8 @@ arb_id_16 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/16/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_16)
+print("========================================================")
 
 Arb_id_27 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[27])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -235,7 +244,8 @@ arb_id_27 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/27/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_27)
+print("========================================================")
 
 Arb_id_28 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[28])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -254,7 +264,8 @@ arb_id_28 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/28/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_28)
+print("========================================================")
 
 Arb_id_29 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[29])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -273,7 +284,8 @@ arb_id_29 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/29/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_29)
+print("========================================================")
 
 Arb_id_30 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[30])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -292,7 +304,8 @@ arb_id_30 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/30/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_30)
+print("========================================================")
 
 Arb_id_31 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[31])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -311,7 +324,8 @@ arb_id_31 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/31/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_31)
+print("========================================================")
 
 Arb_id_32 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[32])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -330,7 +344,8 @@ arb_id_32 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/32/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_32)
+print("========================================================")
 
 Arb_id_33 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[33])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -349,7 +364,8 @@ arb_id_33 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/33/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_33)
+print("========================================================")
 
 Arb_id_34 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[34])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -368,7 +384,8 @@ arb_id_34 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/34/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_34)
+print("========================================================")
 
 
 Arb_id_35 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[35])   #  returns two consecutive packets of the same arbitration IDs
@@ -388,7 +405,8 @@ arb_id_35 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/35/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_35)
+print("========================================================")
 
 Arb_id_37 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[37])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -407,7 +425,8 @@ arb_id_37 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/37/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
-
+print(arb_id_37)
+print("========================================================")
 
 Arb_id_39 = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[39])   #  returns two consecutive packets of the same arbitration IDs
 
@@ -426,11 +445,12 @@ arb_id_39 = predictor.ready_for_testing(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5
                                                                bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                                                bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                                                batch_size=batch_size, model_dir='../trained_models/39/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
+print(arb_id_39)
+print("========================================================")
 
 
-
-print(Arb_id_0,Arb_id_1,Arb_id_2,Arb_id_3,Arb_id_8,Arb_id_9,Arb_id_10,Arb_id_11,Arb_id_13,Arb_id_16,Arb_id_27,
-      Arb_id_28,Arb_id_29,Arb_id_30,Arb_id_31,Arb_id_32,Arb_id_33,Arb_id_34,Arb_id_35,Arb_id_37,Arb_id_39)
+print(arb_id_0,arb_id_1,arb_id_2,arb_id_3,arb_id_8,arb_id_9,arb_id_10,arb_id_11,arb_id_13,arb_id_16,arb_id_27,
+      arb_id_28,arb_id_29,arb_id_30,arb_id_31,arb_id_32,arb_id_33,arb_id_34,arb_id_35,arb_id_37,arb_id_39)
 
 
 # anomaly_signal=(freq[0]*arb_id_0+freq[2]*arb_id_2+freq[3]*arb_id_3+freq[4]*arb_id_4+freq[5]*arb_id_5+freq[6]*arb_id_6+freq[7]*arb_id_7+freq[11]*arb_id_11+

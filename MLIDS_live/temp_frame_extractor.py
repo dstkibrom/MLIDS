@@ -26,7 +26,6 @@ def prepare_dataset(file, arbitration_id):
                 format(int(data[10:12], 16), '08b'))
                         + str(format(int(data[12:14], 16), '08b')) + str(format(int(data[14:16], 16), '08b')))
             data = [int(i) for i in data]  # convert the string values to int
-            print(data)
             sid_data_sequence.append(data)
     return sid_data_sequence[-2:]
 
