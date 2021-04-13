@@ -453,11 +453,40 @@ print(arb_id_0,arb_id_1,arb_id_2,arb_id_3,arb_id_8,arb_id_9,arb_id_10,arb_id_11,
       arb_id_28,arb_id_29,arb_id_30,arb_id_31,arb_id_32,arb_id_33,arb_id_34,arb_id_35,arb_id_37,arb_id_39)
 
 
-# anomaly_signal=(freq[0]*arb_id_0+freq[2]*arb_id_2+freq[3]*arb_id_3+freq[4]*arb_id_4+freq[5]*arb_id_5+freq[6]*arb_id_6+freq[7]*arb_id_7+freq[11]*arb_id_11+
-#      freq[14]*arb_id_14+freq[15]*arb_id_15+freq[16]*arb_id_16+freq[17]*arb_id_17+freq[18]*arb_id_18+freq[19]*arb_id_19+freq[22]*arb_id_22+freq[23]*arb_id_23+
-#      freq[25]*arb_id_25+freq[26]*arb_id_26)\
-#     /(freq[0]+freq[2]+freq[3]+freq[4]+freq[5]+freq[6]+freq[7]+freq[9]+freq[11]+freq[12]+freq[14]+freq[15]+freq[16]+freq[17]+freq[18]+freq[19]+
-#       freq[22]+freq[23]+freq[25]+freq[26])
-#
-# if anomaly_signal > 1.12:
-#     print("Anomaly")
+anomaly_signal=(freq[0] * arb_id_0[0] +
+                freq[2] * arb_id_2[0] +
+                freq[3] * arb_id_3[0] +
+                freq[8] * arb_id_8[0] +
+                freq[9] * arb_id_9[0] +
+                freq[10] * arb_id_10[0] +
+                freq[11] * arb_id_11[0] +
+                freq[13] * arb_id_13[0] +
+                freq[16] * arb_id_16[0] +
+                freq[27] * arb_id_27[0] +
+                freq[28] * arb_id_28[0] +
+                freq[29] * arb_id_29[0] +
+                freq[30] * arb_id_30[0] +
+                freq[31] * arb_id_31[0] +
+                freq[32] * arb_id_32[0] +
+                freq[33] * arb_id_33[0] +
+                freq[34] * arb_id_34[0] +
+                freq[35] * arb_id_35[0] +
+                freq[37] * arb_id_37[0] +
+                freq[39] * arb_id_39[0] )/(freq[0] + freq[1] +
+                                        freq[2] + freq[3] +
+                                        freq[8] + freq[9] +
+                                        freq[10] + freq[11] +
+                                        freq[13] + freq[16] +
+                                        freq[27] + freq[28] +
+                                        freq[29] + freq[30] +
+                                        freq[31] + freq[32] +
+                                        freq[33] + freq[34] +
+                                        freq[35] + freq[37] +
+                                        freq[39])
+
+
+if anomaly_signal > 1.12:
+    print("Anomaly")
+else:
+    print("Benign")
+print(anomaly_signal)
