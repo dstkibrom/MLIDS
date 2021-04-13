@@ -13,64 +13,73 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
            '18F00503', '18FF5127', '18FEED11', '18FEE617', '1CFFAA27', '18EC0027', '18EB0027']
 
 
-batch_size=1
-arb_id=all_ids[1]
-file = open("../datasets/prepared_attacks/insertion_attack_0.01.txt", "r")
-test_data = frame_reader_with_time.prepare_dataset(file, det_duration=1, arbitration_id=arb_id, dur_seconds=3)  # total, sequencelength, 64  # 700,68,64
-
-bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
-bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
-bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43, bit_44, bit_45, bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52, bit_53, bit_54, \
-bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63 = bits_extractor_with_time.extract_all_bits(test_data)
-
-input_test_data = testing_dataset_creator_with_time.ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7,
-                                                                       bit_8, bit_9,
-                                                                       bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16,
-                                                                       bit_17, bit_18,
-                                                                       bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25,
-                                                                       bit_26, bit_27,
-                                                                       bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34,
-                                                                       bit_35, bit_36,
-                                                                       bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43,
-                                                                       bit_44, bit_45,
-                                                                       bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52,
-                                                                       bit_53, bit_54,
-                                                                       bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61,
-                                                                       bit_62, bit_63,
-                                                                       batch_size=batch_size)
-print(input_test_data)
-
-file=open("results/arbID_0", 'w')
-file.write("\n\nAnomaly results\n\n"+str(input_test_data))
-file.close()
-
-print("+++++++++++++++++++++++++++++++++++")
-file = open("../datasets/prepared_attacks/benign_data.txt", "r")
-test_data = frame_reader_with_time.prepare_dataset(file, det_duration=1, arbitration_id=arb_id, dur_seconds=3)  # total, sequencelength, 64  # 700,68,64
-
-bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
-bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
-bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43, bit_44, bit_45, bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52, bit_53, bit_54, \
-bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63 = bits_extractor_with_time.extract_all_bits(test_data)
+def test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window):
 
 
-input_test_data = testing_dataset_creator_with_time.ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7,
-                                                                       bit_8, bit_9,
-                                                                       bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16,
-                                                                       bit_17, bit_18,
-                                                                       bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25,
-                                                                       bit_26, bit_27,
-                                                                       bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34,
-                                                                       bit_35, bit_36,
-                                                                       bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43,
-                                                                       bit_44, bit_45,
-                                                                       bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52,
-                                                                       bit_53, bit_54,
-                                                                       bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61,
-                                                                       bit_62, bit_63,
-                                                                       batch_size=batch_size)
-file=open("results/arbID_0", 'a')
-file.write("\n\nBenign results\n\n"+str(input_test_data))
-file.close()
-print(input_test_data)
+    file = open('../datasets/prepared_attacks/'+attack_type+'_'+str(attack_freq)+'.txt', "r")
+    test_data = frame_reader_with_time.prepare_dataset(file, det_duration=det_window, arbitration_id=all_ids[arb_index], dur_seconds=testing_duration)  # total, sequencelength, 64  # 700,68,64
 
+    bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
+    bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
+    bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43, bit_44, bit_45, bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52, bit_53, bit_54, \
+    bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63 = bits_extractor_with_time.extract_all_bits(test_data)
+
+    input_test_data = testing_dataset_creator_with_time.ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7,
+                                                                           bit_8, bit_9,
+                                                                           bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16,
+                                                                           bit_17, bit_18,
+                                                                           bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25,
+                                                                           bit_26, bit_27,
+                                                                           bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34,
+                                                                           bit_35, bit_36,
+                                                                           bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43,
+                                                                           bit_44, bit_45,
+                                                                           bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52,
+                                                                           bit_53, bit_54,
+                                                                           bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61,
+                                                                           bit_62, bit_63,
+                                                                           arb_id=all_ids[arb_index])
+    print(input_test_data)
+
+    file=open('results/arbID_'+str(arb_index), 'w')
+    file.write(str(input_test_data)+'\n')
+    file.close()
+
+    print("+++++++++++++++++++++++++++++++++++")
+    if attack_type=='insertion_attack':
+        file = open("../datasets/prepared_attacks/benign_data.txt", "r")
+        test_data = frame_reader_with_time.prepare_dataset(file, det_duration=det_window, arbitration_id=all_ids[arb_index], dur_seconds=testing_duration)  # total, sequencelength, 64  # 700,68,64
+
+        bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
+        bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25, bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, \
+        bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43, bit_44, bit_45, bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52, bit_53, bit_54, \
+        bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63 = bits_extractor_with_time.extract_all_bits(test_data)
+
+
+        input_test_data = testing_dataset_creator_with_time.ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7,
+                                                                               bit_8, bit_9,
+                                                                               bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16,
+                                                                               bit_17, bit_18,
+                                                                               bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25,
+                                                                               bit_26, bit_27,
+                                                                               bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34,
+                                                                               bit_35, bit_36,
+                                                                               bit_37, bit_38, bit_39, bit_40, bit_41, bit_42, bit_43,
+                                                                               bit_44, bit_45,
+                                                                               bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52,
+                                                                               bit_53, bit_54,
+                                                                               bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61,
+                                                                               bit_62, bit_63,
+                                                                               arb_id=all_ids[arb_index])
+        file=open('results/arbID_'+str(arb_index), 'a')
+        file.write(str(input_test_data))
+        file.close()
+        print(input_test_data)
+
+if __name__ == "__main__":
+    arb_index=0
+    testing_duration=2
+    attack_type='insertion_attack'
+    attack_freq=0.01
+    det_window=1
+    test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window)

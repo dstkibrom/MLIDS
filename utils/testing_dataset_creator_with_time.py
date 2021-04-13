@@ -13,32 +13,21 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
            '18F00503', '18FF5127', '18FEED11', '18FEE617', '1CFFAA27', '18EC0027', '18EB0027']
 
 
-
-conf = [16, 1, 32, 'ITD', 'SGD', 0.1]
-
-
-duration = 1
-memory = 30000
-batch_size = 1
-LSTM_units = 32
-embedding_size = 16
-num_layers = 1
-duration = duration
-checkpoint_dir = "trained_models/1/training_checkpoints"
-arb_id = all_ids[1]
-
-checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
-model = model_creator_sigmoid.my_model(batch_size, LSTM_units,embedding_size, num_layers)
-model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
-model.build(tf.TensorShape([1, None]))
-whole_sequence_loss=[]
-
-
 def ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12,
                        bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, bit_19, bit_20, bit_21, bit_22, bit_23, bit_24, bit_25,
                        bit_26, bit_27, bit_28, bit_29, bit_30, bit_31, bit_32, bit_33, bit_34, bit_35, bit_36, bit_37, bit_38,
                        bit_39, bit_40, bit_41, bit_42, bit_43, bit_44, bit_45, bit_46, bit_47, bit_48, bit_49, bit_50, bit_51, bit_52,
-                       bit_53, bit_54, bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63, batch_size):
+                       bit_53, bit_54, bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,arb_id):
+
+    batch_size = 1
+    LSTM_units = 32
+    embedding_size = 16
+    num_layers = 1
+    checkpoint_dir = '../trained_models/'+str(all_ids.index(arb_id))+'/training_checkpoints'
+    checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
+    model = model_creator_sigmoid.my_model(batch_size, LSTM_units, embedding_size, num_layers)
+    model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
+    model.build(tf.TensorShape([1, None]))
     whole_sequence_loss = []
     for i in range(bit_0.shape[0]):
         bit_0_input, bit_0_output = bit_0[i, :-1].numpy().tolist(), bit_0[i, 1:].numpy().tolist()
@@ -146,6 +135,5 @@ def ready_for_training(bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, b
             bit_loss = 0
             counter = 0
         whole_sequence_loss.append(sum(packet_loss) / len(packet_loss))
-        print(whole_sequence_loss)
     return whole_sequence_loss
 

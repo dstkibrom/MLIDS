@@ -5,3 +5,7 @@ trial.py
 datasets/test_datasets
 .idea
 /trained_models
+ utils/__pycache__/
+/MLIDS_offline/results
+model/__pycache__/
+
