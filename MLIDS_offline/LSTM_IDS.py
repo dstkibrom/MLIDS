@@ -15,7 +15,7 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
 
 batch_size=1
 arb_id=all_ids[1]
-file = open("/home/tensor/MobileNet/datasets/prepared_attacks/insertion_attack_0.02.txt", "r")
+file = open("../datasets/prepared_attacks/insertion_attack_0.01.txt", "r")
 test_data = frame_reader_with_time.prepare_dataset(file, det_duration=1, arbitration_id=arb_id, dur_seconds=3)  # total, sequencelength, 64  # 700,68,64
 
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
@@ -45,7 +45,7 @@ file.write("\n\nAnomaly results\n\n"+str(input_test_data))
 file.close()
 
 print("+++++++++++++++++++++++++++++++++++")
-file = open("datasets/test_datasets/benign_data.txt", "r")
+file = open("../datasets/prepared_attacks/benign_data.txt", "r")
 test_data = frame_reader_with_time.prepare_dataset(file, det_duration=1, arbitration_id=arb_id, dur_seconds=3)  # total, sequencelength, 64  # 700,68,64
 
 bit_0, bit_1, bit_2, bit_3, bit_4, bit_5, bit_6, bit_7, bit_8, bit_9, bit_10, bit_11, bit_12, bit_13, bit_14, bit_15, bit_16, bit_17, bit_18, \
