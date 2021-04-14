@@ -8,7 +8,6 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
 
 
 def prepare_dataset(file, det_duration, arbitration_id, dur_seconds):
-    counter = 0
     arb_id_data = []
     sarb_id_data=[]
     initial_time=0
@@ -28,10 +27,10 @@ def prepare_dataset(file, det_duration, arbitration_id, dur_seconds):
                     + str(format(int(data[12:14], 16), '08b')) + str(format(int(data[14:16], 16), '08b')))
         data = [int(i) for i in data]  # convert the string values to int
 
-        if arb_id == arbitration_id and arr_time - initial_time < det_duration:
-            counter = counter + 1  # for counting the numbers of data sets
-            sarb_id_data.append(data)
-        elif arb_id == arbitration_id and arr_time -initial_time >= det_duration:
+        if arr_time - initial_time < det_duration:
+            if arb_id == arbitration_id:
+                sarb_id_data.append(data)
+        elif arr_time -initial_time >= det_duration:
             arb_id_data.append(sarb_id_data)
             sarb_id_data = []
             sarb_id_data.append(data)

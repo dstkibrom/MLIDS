@@ -15,7 +15,6 @@ all_ids = ['0CF00400', '0CF00300', '18FEF100', '1CFF6F00', '18ECFF00', '18FF8800
 
 def test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window):
 
-
     file = open('../datasets/prepared_attacks/'+attack_type+'_'+str(attack_freq)+'.txt', "r")
     test_data = frame_reader_with_time.prepare_dataset(file, det_duration=det_window, arbitration_id=all_ids[arb_index], dur_seconds=testing_duration)  # total, sequencelength, 64  # 700,68,64
 
@@ -77,9 +76,10 @@ def test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window):
         print(input_test_data)
 
 if __name__ == "__main__":
-    arb_index=0
-    testing_duration=2
+    # benign is giong to be checked with insertion attack only
+    arb_index=8
+    testing_duration=1000
     attack_type='insertion_attack'
     attack_freq=0.01
     det_window=1
-    test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window)
+    print(test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window))
