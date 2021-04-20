@@ -53,7 +53,6 @@ def get_id_prediction(arb_index):
                                              arb_index) + '/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
     return arb_id[0]
 
-
 while True:
     duration = 1  # detection duration
     frames_fetcher.fetch(duration)  # fetch packets from the terminal that is playing the can dataset
