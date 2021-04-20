@@ -40,7 +40,7 @@ def test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window):
                                                                            arb_id=all_ids[arb_index])
     print(input_test_data)
 
-    file=open('results/arbID_'+str(arb_index), 'w')
+    file=open('results/'+str(attack_type)+'_'+str(attack_freq)+'_'+str(arb_index), 'w')
     file.write(str(input_test_data)+'\n')
     file.close()
 
@@ -70,7 +70,7 @@ def test_each_ID(arb_index,testing_duration,attack_type,attack_freq,det_window):
                                                                                bit_55, bit_56, bit_57, bit_58, bit_59, bit_60, bit_61,
                                                                                bit_62, bit_63,
                                                                                arb_id=all_ids[arb_index])
-        file=open('results/arbID_'+str(arb_index), 'a')
+        file=open('results/'+str(attack_type)+'_'+str(attack_freq)+'_'+str(arb_index), 'a')
         file.write(str(input_test_data))
         file.close()
         print(input_test_data)
