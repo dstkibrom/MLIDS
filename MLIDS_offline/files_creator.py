@@ -14,17 +14,18 @@
 #     file.write('\t\tLSTM_IDS.test_each_ID(arb_index, testing_duration, att_ty, att_fr, det_window)\n')
 #     file.close()
 
-indexs=[0,1,2,3,8,9,10,11,13,16,27,28,29,30,31,32,33,34,35,37,39]
-
+indexs=['insertion_attack','drop_attack','fuzzy_attack']
+at_win=['001','002','003','004','005']
 for index in indexs:
-    file=open('new_shellscripts/arb_id_'+str(index)+'.sh','w')
-    file.write('#!/bin/bash\n')
-    file.write('#$ -S /bin/bash\n')
-    file.write('#$ -cwd\n')
-    file.write('#$ -V\n')
-    file.write('export PATH=\"/work/araya-kd/anaconda3/bin:$PATH\"\n')
-    file.write('source activate tf_gpu_cuda8\n')
-    file.write('cd /work/araya-kd/MLIDS/MLIDS_offline\n')
-    file.write('python3 arb_id_'+str(index)+'.py')
-    file.close()
+    for typ in at_win:
+        file=open('new_shellscripts/'+index+'_'+typ+'.sh','w')
+        file.write('#!/bin/bash\n')
+        file.write('#$ -S /bin/bash\n')
+        file.write('#$ -cwd\n')
+        file.write('#$ -V\n')
+        file.write('export PATH=\"/work/araya-kd/anaconda3/bin:$PATH\"\n')
+        file.write('source activate tf_gpu_cuda8\n')
+        file.write('cd /work/araya-kd/MLIDS/MLIDS_offline\n')
+        file.write('python3 '+index+'_'+typ+'.py')
+        file.close()
 

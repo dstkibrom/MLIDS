@@ -26,11 +26,12 @@ all_ids_length = {'0CF00400': 50, '0CF00300': 20, '18FEF100': 10, '1CFF6F00': 10
                   '18EC0027': 0, '18EB0027': 0}
 arb_frequency = list(all_ids_length.values())
 arb_id_indexs = [0, 1, 2, 3, 8, 9, 10, 11, 13, 16, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 39]
+
 batch_size = 1  # we need to change the batch size to 1 inorder to make predictions
 
 
 def get_id_prediction(arb_index):
-    file = "temp_file.txt"  # read frames collected by frame fetcher
+    file = "temp_file.txt"  # read frames collected by frame fetcher which collects frames from a file in the datasets
 
     Arb_id = temp_frame_extractor.prepare_dataset(file, arbitration_id=all_ids[
         arb_index])  # returns two consecutive packets of the same arbitration IDs
@@ -50,28 +51,40 @@ def get_id_prediction(arb_index):
                                          bit_50, bit_51, bit_52, bit_53, bit_54, bit_55, bit_56,
                                          bit_57, bit_58, bit_59, bit_60, bit_61, bit_62, bit_63,
                                          batch_size=batch_size,
-                                         model_dir='../trained_models/' + str(
+                                         model_dir='../../trained_models/' + str(
                                              arb_index) + '/training_checkpoints')  # this folder is not available unless all arbitration IDs are trained first
     return arb_id[0]
 
-while True:
-    duration = 1  # detection duration
-    frames_fetcher.fetch(duration)  # fetch packets from the terminal that is playing the can dataset
+duration=1     # detection duration
+attack_type = 'insertion_attack'
+attack_freq = [0.01,0.02,0.03,0.04,0.05]
+breaking_duration=2500
+for att_fr in attack_freq:
+    file = open('../../datasets/prepared_attacks/' + attack_type + '_' + str(att_fr) + '.txt', "r")
+    for line in file:
+        initial_time = float(line[1:18])
+        break
+    file.close()
+    all_packets = frames_fetcher.read_file_tolist(attack_type, att_fr)
+    counter=0           # a counter for breaking out of the while loop
+    results_file=open('../../new_results/'+attack_type+'_'+str(att_fr)+'.txt','w')
+    signal_values=[]   # collection of the results
+    while True:
+        counter=counter+1
+        next_initial_time = frames_fetcher.fetch(initial_time, duration=1, data_lines=all_packets)
+        initial_time = next_initial_time + 5.0   # the 5.0 is so as for the system to skip every 5 seconds for faster testing
 
-    start = time.perf_counter()
+        with concurrent.futures.ProcessPoolExecutor() as executor:
+            results = executor.map(get_id_prediction, arb_id_indexs)
 
-    with concurrent.futures.ProcessPoolExecutor() as executor:
-        results = executor.map(get_id_prediction, arb_id_indexs)
+        anomaly_signal = 0
+        for freq, res in zip(arb_frequency, results):
+            anomaly_signal = anomaly_signal + freq * res
+        anomaly_signal = anomaly_signal / sum(arb_frequency)
+        signal_values.append(anomaly_signal)
 
-    anomaly_signal = 0
-    for freq, res in zip(arb_frequency, results):
-        anomaly_signal = anomaly_signal + freq * res
-    anomaly_signal = anomaly_signal / sum(arb_frequency)
+        if counter > breaking_duration:
+            break
 
-    if anomaly_signal > 0.04:
-        print("Anomaly")
-    else:
-        print("Benign")
-    finish = time.perf_counter()
-    print(anomaly_signal)
-    print(f'exuction time is {finish - start} seconds')
+    results_file.write(str(signal_values))
+    results_file.close()

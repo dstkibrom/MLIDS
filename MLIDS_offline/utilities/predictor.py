@@ -1,7 +1,7 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
-import model_creator_sigmoid
+from . import model_creator_sigmoid
 import logging
 
 logging.getLogger('tensorflow').disabled = True
