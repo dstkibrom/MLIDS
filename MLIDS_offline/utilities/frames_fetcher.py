@@ -9,8 +9,8 @@ def read_file_tolist(att_ty, att_frq):  # attack type and attack frequency
     return data_lines
 
 
-def fetch(begn_time, duration, data_lines):
-    current_window_data = open('temp_file.txt', 'w')
+def fetch(begn_time,attack_type,attack_freq, duration, data_lines):
+    current_window_data = open('temp_'+str(attack_type)+'_'+str(attack_freq)+'.txt', 'w')
     for rows in data_lines:
         arr_time = float(rows[1:18])
         time_stamp=rows[1:18]
